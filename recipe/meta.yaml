@@ -16,22 +16,21 @@ source:
     fn: bazel
 
 build:
-  number: 8
+  number: 0
   skip: true  # [win]
 
 requirements:
   build:
-    - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - openjdk
-    - openjdk 17  # [linux]
+    - openjdk 11
     - bazel-toolchain
-    - libprotobuf
+    - libprotobuf {{ libprotobuf }}
     - sed  # [osx]
+    - patch
   host:
-    - libabseil
-    - libprotobuf
+    - libabseil {{ libabseil }}
+    - libprotobuf {{ libprotobuf }}
 
 test:
   commands:
@@ -40,9 +39,12 @@ test:
 about:
   home: https://github.com/grpc/grpc-java/tree/master/compiler
   license: Apache-2.0
-  license_family: MIT
+  license_family: Apache
   license_file: LICENSE
   summary: gRPC Java Codegen Plugin for Protobuf Compiler
+  description: gRPC Java Codegen Plugin for Protobuf Compiler
+  dev_url: https://github.com/grpc/grpc-java/tree/master/compiler
+  doc_url: https://grpc.io/docs/languages/java/
 
 extra:
   recipe-maintainers:
