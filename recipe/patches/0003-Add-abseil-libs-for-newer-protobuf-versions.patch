@@ -12,21 +12,21 @@ index 8531d28f0..2b579b2b5 100644
 --- a/protobuf.BUILD
 +++ b/protobuf.BUILD
 @@ -62,19 +62,19 @@ genrule(
-
+ 
  cc_library(
      name = "protobuf",
 -    linkopts = ["-lprotobuf"],
 +    linkopts = ["-lprotobuf", "-labsl_hash", "-labsl_raw_hash_set", "-labsl_raw_logging_internal", "-labsl_log_internal_message", "-labsl_log_internal_check_op"],
      visibility = ["//visibility:public"],
  )
-
+ 
  cc_library(
      name = "protobuf_headers",
 -    linkopts = ["-lprotobuf"],
 +    linkopts = ["-lprotobuf", "-labsl_hash", "-labsl_raw_hash_set", "-labsl_raw_logging_internal", "-labsl_log_internal_message", "-labsl_log_internal_check_op"],
      visibility = ["//visibility:public"],
  )
-
+ 
  cc_library(
      name = "protoc_lib",
 -    linkopts = ["-lprotoc"],

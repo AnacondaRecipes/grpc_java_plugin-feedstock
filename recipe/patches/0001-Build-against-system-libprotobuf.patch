@@ -22,17 +22,17 @@ index 7bbfbcc5f..02f1aead1 100644
 --- a/WORKSPACE
 +++ b/WORKSPACE
 @@ -22,8 +22,10 @@ load("//:repositories.bzl", "grpc_java_repositories")
-
+ 
  grpc_java_repositories()
-
+ 
 -load("@com_google_protobuf//:protobuf_deps.bzl", "PROTOBUF_MAVEN_ARTIFACTS")
  load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 +load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 +load("//:protobuf_deps.bzl", "protobuf_deps")
 +load("//:protobuf_deps.bzl", "PROTOBUF_MAVEN_ARTIFACTS")
-
+ 
  protobuf_deps()
-
+ 
 diff --git a/compiler/BUILD.bazel b/compiler/BUILD.bazel
 index 753f48507..c9a999251 100644
 --- a/compiler/BUILD.bazel
@@ -44,7 +44,7 @@ index 753f48507..c9a999251 100644
 +        "@com_google_protobuf//:protobuf",
      ],
  )
-
+ 
 diff --git a/protobuf.BUILD b/protobuf.BUILD
 new file mode 100644
 index 000000000..8531d28f0
@@ -758,5 +758,5 @@ index a4f5b0de1..c8df50411 100644
 +        build_file = "./protobuf.BUILD",
 +        workspace_file = "./protobuf.WORKSPACE"
      )
-
+ 
  def io_grpc_grpc_proto():
