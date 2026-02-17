@@ -29,7 +29,7 @@ source:
     sha256: 37017223885da29d8c42be781e8c11b84e71a3d9355b073d43b08a5dfa99229a           # [build_platform == "osx-arm64"]
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
@@ -43,8 +43,8 @@ requirements:
     - libprotobuf
     - sed  # [osx]
   host:
-    - libabseil {{ libabseil }}
-    - libprotobuf {{ libprotobuf }}
+    - libabseil 20260107.0
+    - libprotobuf 6.33.5
 
 test:
   commands:
